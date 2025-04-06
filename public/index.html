@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z6M3CJEV3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-7Z6M3CJEV3");
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4871781946658288" data-overlays="bottom" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeDiff Checker コード差分チェックツール | テキストやコードの違いを簡単に確認</title>
+
+    <!-- SEO meta -->
+    <meta name="description" content="テキストやコードの差分を簡単に確認できるオンラインツールです。差分部分が色で強調表示されます。" />
+    <meta name="keywords" content="差分, テキスト差分, コード差分, 差分チェック, コード比較, 無料ツール, Webツール" />
+    <meta name="author" content="CodeQuest" />
+
+    <!-- OGP設定 -->
+    <meta property="og:title" content="コード差分チェックツール | テキストやコードの違いを簡単に確認" />
+    <meta property="og:description" content="テキストやコードの差分を簡単に確認できるオンラインツールです。差分部分が色で強調表示されます。" />
+    <meta property="og:image" content="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+    <meta property="og:url" content="https://codequest.work/generator/codediff-checker/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CodeQuest" />
+
+    <!-- Twitterカード設定 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="コード差分チェックツール | テキストやコードの違いを簡単に確認" />
+    <meta name="twitter:description" content="テキストやコードの差分を簡単に確認できるオンラインツールです。差分部分が色で強調表示されます。" />
+    <meta name="twitter:image" content="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+    <meta name="twitter:site" content="@CodeQuest_work" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        background: #e0e0e0;
+        margin: 0;
+      }
+
+      header {
+        width: 100%;
+        background-color: #111;
+        padding: 20px;
+        text-align: center;
+      }
+
+      header h2 {
+        color: #f0f0f0;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px #fff;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin: 2% auto 0;
+        width: 80%;
+        max-width: 1400px;
+        padding: 20px;
+        background: #e0e0e0;
+        border-radius: 15px;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1), -10px -10px 15px rgba(255, 255, 255, 0.7); /* Soft shadows for neumorphism */
+        backdrop-filter: blur(10px);
+      }
+
+      .code-container {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+      }
+
+      .code {
+        width: 100%;
+        height: 60vh;
+        padding: 15px;
+        font-family: monospace;
+        font-size: 14px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border: none;
+        background: #f0f0f0;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.7); /* Inner shadows for neumorphism */
+        overflow-y: auto;
+      }
+
+      .code-container label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      .button-container {
+        display: flex;
+        gap: 10px;
+        margin: 40px auto;
+        width: 80%;
+        max-width: 1400px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background: #e0e0e0;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 0.7); /* Neumorphism shadow effect */
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #d1d1d1;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.7); /* Shadow shift effect */
+      }
+
+      button:active {
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.7); /* Inner shadow on click */
+      }
+
+      footer {
+        padding: 20px;
+        text-align: center;
+      }
+
+      /* 追加された部分（追加されたテキストに緑色） */
+      .added {
+        background-color: #d4f7d4; /* 緑 (追加) */
+        color: green;
+        padding: 0 4px;
+        /* border-left: 3px solid green; */
+        white-space: pre-wrap; /* インデントや改行を維持 */
+      }
+
+      /* 削除された部分（削除されたテキストに赤色） */
+      .removed {
+        background-color: #f7d4d4; /* 赤 (削除) */
+        color: red;
+        padding: 0 4px;
+        /* border-left: 3px solid red; */
+        white-space: pre-wrap; /* インデントや改行を維持 */
+      }
+
+      .full-width-space {
+        padding: 0 4px;
+        border-radius: 3px;
+        display: inline-block;
+        width: auto; /* 全角スペースの可視化 */
+        text-align: center;
+      }
+
+      mark {
+        background-color: transparent; /* mark タグ内で透明な背景色を使用 */
+        padding: 0.2em;
+      }
+
+      .ads-container {
+        text-align: center;
+      }
+
+      .mark-description {
+        width: 100%;
+        max-width: 1400px;
+        margin: 20px auto 0;
+      }
+
+      .mark-description li {
+        display: inline-block;
+        padding: 4px 8px;
+        margin: 4px;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      /* レスポンシブデザイン: スマホやタブレットに対応 */
+      @media screen and (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .code-container {
+          width: 100%;
+        }
+
+        .code {
+          height: 150px; /* テキストエリアの高さを調整 */
+        }
+
+        .button-container {
+          width: 100%;
+          margin-top: 20px;
+        }
+
+        button {
+          width: 100%; /* ボタンをフル幅にする */
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        button {
+          font-size: 14px; /* 小さい画面ではフォントサイズを小さく */
+          padding: 8px 16px; /* ボタンのサイズを小さく */
+        }
+
+        .code {
+          height: 120px; /* スマホ画面でテキストエリアの高さを調整 */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>CodeDiff Checker</h2>
+    </header>
+    <div class="container">
+      <div class="code-container">
+        <label for="code1">sample code:</label>
+        <div id="code1" class="code" contenteditable="true" placeholder="コードを貼り付けてください..."></div>
+      </div>
+
+      <div class="code-container">
+        <label for="code2">my code:</label>
+        <div id="code2" class="code" contenteditable="true" placeholder="コードを貼り付けてください..."></div>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button id="checkDiffBtn">差分をチェック</button>
+      <button id="clearBtn">クリア</button>
+    </div>
+
+    <div id="result"></div>
+
+    <div class="ads-container">
+      <!-- diff -->
+      <ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4871781946658288" data-ad-slot="7842088730" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <footer>
+      ©CodeDiff Checker | Created by
+      <a href="https://codequest.work/" target="_blank" rel="noopener noreferrer">CodeQuest</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/diff@5.0.0/dist/diff.min.js"></script>
+    <script>
+      // HTMLエスケープ関数（タグを文字列として表示するため）
+      function escapeHTML(str) {
+        return str
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\u3000/g, '<span class="full-width-space">□</span>'); // 全角スペースを可視化
+      }
+
+      // コード貼り付け時にHTMLエスケープを適用する
+      function handlePaste(event) {
+        event.preventDefault(); // デフォルトの貼り付け処理を防止
+        const clipboardData = event.clipboardData || window.clipboardData;
+        const pastedData = clipboardData.getData("text");
+        const escapedData = escapeHTML(pastedData);
+        document.execCommand("insertHTML", false, escapedData);
+      }
+
+      // 差分をチェックするボタンの処理
+      document.getElementById("checkDiffBtn").addEventListener("click", function () {
+        // 不要な空行を削除してからデータ取得
+        const code1 = document.getElementById("code1").innerText.trim().replace(/\n+/g, "\n");
+
+        const code2 = document.getElementById("code2").innerText.trim().replace(/\n+/g, "\n");
+
+        const diff = Diff.diffChars(code1, code2);
+
+        let newCode1 = "";
+        let newCode2 = "";
+
+        diff.forEach((part) => {
+          const escapedValue = escapeHTML(part.value);
+
+          if (part.added) {
+            newCode2 += `<span class="added">` + escapedValue + `</span>`;
+          } else if (part.removed) {
+            newCode1 += `<span class="removed">` + escapedValue + `</span>`;
+          } else {
+            newCode1 += `<span>` + escapedValue + `</span>`;
+            newCode2 += `<span>` + escapedValue + `</span>`;
+          }
+        });
+
+        document.getElementById("code1").innerHTML = newCode1;
+        document.getElementById("code2").innerHTML = newCode2;
+      });
+
+      // クリアボタンの処理
+      document.getElementById("clearBtn").addEventListener("click", function () {
+        document.getElementById("code1").innerHTML = "";
+        document.getElementById("code2").innerHTML = "";
+        document.getElementById("result").innerHTML = "";
+      });
+
+      // コード入力欄にペースト時のエスケープ処理を追加
+      document.getElementById("code1").addEventListener("paste", handlePaste);
+      document.getElementById("code2").addEventListener("paste", handlePaste);
+    </script>
+  </body>
+</html>
