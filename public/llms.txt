@@ -1,0 +1,32 @@
+# CodeDiff Checker
+
+> コードやテキストの差分を色で視覚的に確認できる無料のオンラインツール。ブラウザのみで動作し、登録不要・インストール不要。
+
+## ツールの概要
+
+- 運営: CodeQuest.work (https://codequest.work/)
+- URL: https://codequest.work/generator/diff-checker/
+- カテゴリ: 開発者向けWebツール
+- 料金: 無料
+
+## 主な機能
+
+- 2つのテキスト/コードを左右に並べて差分を並列表示
+- 変更・削除・追加された行を色でハイライト（行単位）
+- 変更行内の差分を文字レベルでもハイライト表示
+- 「空白を無視」オプションで行末スペース・インデント差を除外
+- 全角スペースを検出し警告・マーキング
+- ファイルのドラッグ＆ドロップに対応
+
+## 対応言語・用途
+
+任意のプログラミング言語（Python, JavaScript, Java, TypeScript, CSS, HTML 等）およびプレーンテキストに対応。
+
+## 処理の安全性
+
+差分比較処理はすべてブラウザ上で完結。入力データは外部サーバーに送信されない。
+
+## ページ一覧
+
+- [ツール本体](https://codequest.work/generator/diff-checker/)
+- [使い方ガイド](https://codequest.work/generator/diff-checker/howto.html)
