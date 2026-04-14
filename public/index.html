@@ -24,7 +24,9 @@
     <!-- OGP設定 -->
     <meta property="og:title" content="CodeDiff Checker - コード差分・テキスト比較ツール【無料】" />
     <meta property="og:description" content="コードやテキストの差分を色で視覚的に確認できる無料オンラインツール。登録不要・インストール不要でブラウザだけで使えます。" />
-    <meta property="og:image" content="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+    <meta property="og:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://codequest.work/generator/diff-checker/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="CodeQuest.work" />
@@ -33,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CodeDiff Checker - コード差分・テキスト比較ツール【無料】" />
     <meta name="twitter:description" content="コードやテキストの差分を色で視覚的に確認できる無料オンラインツール。登録不要・インストール不要でブラウザだけで使えます。" />
-    <meta name="twitter:image" content="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+    <meta name="twitter:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
     <meta name="twitter:site" content="@CodeQuest_work" />
 
     <!-- Google Fonts -->
@@ -89,12 +91,28 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
       "name": "CodeDiff Checker",
+      "alternateName": ["コード差分チェッカー", "diffチェッカー", "テキスト比較ツール"],
       "url": "https://codequest.work/generator/diff-checker/",
-      "description": "コードやテキストの差分を色で視覚的に確認できる無料オンラインツール。登録不要・インストール不要でブラウザだけで使えます。",
+      "description": "コードやテキストの差分を色で視覚的に確認できる無料オンラインツール。登録不要・インストール不要でブラウザだけで使えます。文字レベルでハイライト表示し、全角スペースの混入も検出します。",
       "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Any",
+      "applicationSubCategory": "DiffTool",
+      "operatingSystem": "Any (Web Browser)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "softwareVersion": "2.0",
+      "image": "https://codequest.work/generator/diff-checker/ogp.png",
+      "screenshot": "https://codequest.work/generator/diff-checker/ogp.png",
+      "inLanguage": "ja",
+      "isAccessibleForFree": true,
+      "featureList": [
+        "サイドバイサイド形式の並列差分表示",
+        "行・単語・文字レベルのハイブリッド差分検出",
+        "全角スペース混入の自動検出",
+        "ファイルのドラッグ&ドロップ読み込み",
+        "空白を無視するオプション",
+        "ブラウザ完結の処理（コードはサーバーに送信されない）"
+      ],
       "offers": {
         "@type": "Offer",
         "price": "0",

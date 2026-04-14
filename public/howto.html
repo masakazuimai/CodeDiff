@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CodeDiff Checker 使い方 | 3ステップでコード差分を確認する方法</title>
-    <meta name="description" content="CodeDiff Checkerの使い方を3ステップで解説。コードやテキストの差分を色で視覚的に確認できる無料ツールの操作方法を初心者向けに説明します。" />
+    <title>CodeDiff Checker 使い方ガイド | コード差分の確認方法・言語別ユースケース・FAQ</title>
+    <meta name="description" content="CodeDiff Checkerの使い方を3ステップで解説。CSS・HTML・JavaScript・Python・SQLのコード差分確認方法、git diffやVS Codeとの違い、よくある質問まで初心者向けにまとめています。" />
     <meta name="author" content="CodeQuest.work" />
     <link rel="canonical" href="https://codequest.work/generator/diff-checker/howto.html" />
 
     <!-- OGP設定 -->
     <meta property="og:title" content="CodeDiff Checker 使い方 | 3ステップでコード差分を確認する方法" />
     <meta property="og:description" content="CodeDiff Checkerの使い方を3ステップで解説。コードやテキストの差分を色で視覚的に確認できる無料ツールの操作方法を初心者向けに説明します。" />
-    <meta property="og:image" content="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+    <meta property="og:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://codequest.work/generator/diff-checker/howto.html" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="CodeQuest.work" />
@@ -21,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CodeDiff Checker 使い方 | 3ステップでコード差分を確認する方法" />
     <meta name="twitter:description" content="CodeDiff Checkerの使い方を3ステップで解説。コードやテキストの差分を色で視覚的に確認できる無料ツールの操作方法を初心者向けに説明します。" />
-    <meta name="twitter:image" content="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+    <meta name="twitter:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
     <meta name="twitter:site" content="@CodeQuest_work" />
 
     <!-- Google Fonts -->
@@ -212,9 +214,91 @@
         margin: 0;
       }
 
+      .usecase-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-top: 12px;
+      }
+
+      .usecase-card {
+        background: #f0f0f0;
+        border-radius: 10px;
+        padding: 16px 18px;
+        box-shadow:
+          inset 3px 3px 6px rgba(0, 0, 0, 0.06),
+          inset -3px -3px 6px rgba(255, 255, 255, 0.6);
+      }
+
+      .usecase-card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .usecase-card .lang-tag {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #2a2a2a;
+        padding: 2px 10px;
+        border-radius: 12px;
+      }
+
+      .usecase-card p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .compare-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 12px;
+        font-size: 16px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow:
+          inset 2px 2px 5px rgba(0, 0, 0, 0.06),
+          inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+      }
+
+      .compare-table th,
+      .compare-table td {
+        padding: 12px 14px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+        color: #444;
+      }
+
+      .compare-table th {
+        background: #2a2a2a;
+        color: #f0f0f0;
+        font-weight: 600;
+      }
+
+      .compare-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .compare-table td:first-child {
+        font-weight: 600;
+        color: #222;
+      }
+
       @media screen and (max-width: 768px) {
         .howto-wrap { width: 95%; padding: 24px 20px; }
         .step { flex-direction: column; gap: 10px; }
+        .compare-table { font-size: 16px; }
+        .compare-table th, .compare-table td { padding: 10px 8px; }
       }
     </style>
   </head>
@@ -305,6 +389,95 @@
 
       <hr class="divider" />
 
+      <!-- 言語別ユースケース -->
+      <section aria-label="言語別ユースケース">
+        <h2>言語別の使い方ユースケース</h2>
+        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+          プログラミング言語ごとに、CodeDiff Checkerが活躍する典型的なミス検出シーンを紹介します。
+        </p>
+        <div class="usecase-grid">
+          <div class="usecase-card">
+            <h3><span class="lang-tag">CSS</span>プロパティ値のタイポ</h3>
+            <p>
+              <code>border-radius: 50%;</code> と <code>border-radius: 5px;</code> のような値の違いや、<code>display: flex</code> のスペル誤りを左右の色付きハイライトで一目で発見できます。
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">HTML</span>閉じタグの抜け</h3>
+            <p>
+              <code>&lt;div&gt;</code> や <code>&lt;section&gt;</code> の閉じタグ忘れ、属性のスペルミス（<code>class</code> と <code>clas</code>）を行レベル＋文字レベルで特定できます。
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">JavaScript</span>セミコロン・括弧</h3>
+            <p>
+              <code>const</code> と <code>cosnt</code> のタイポ、波括弧やカンマの抜け、関数引数の誤りなど、エラーになりがちな細かい違いを比較できます。
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">Python</span>インデントの差</h3>
+            <p>
+              Pythonはインデントが構文の一部です。「空白を無視」をオフにしたまま比較すれば、お手本コードとのインデントずれを検出できます。
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">SQL</span>カンマ・キーワード位置</h3>
+            <p>
+              <code>SELECT</code> 句のカンマ位置、<code>JOIN</code> の種類違い、テーブル名のタイポなど、実行前に気付きにくいSQLのミスを差分で確認できます。
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">日本語</span>全角スペース混入</h3>
+            <p>
+              IMEで誤って入力された全角スペース（<code>　</code>）を <span class="fullwidth-marker">□</span> マークで可視化。コピペコードのエラー原因として典型的なミスです。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- 他ツールとの比較 -->
+      <section aria-label="他の差分ツールとの比較">
+        <h2>他の差分ツールとの違い</h2>
+        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+          差分確認の手段はいろいろありますが、CodeDiff Checkerは「学習中の人がブラウザだけで気軽に使える」ことに特化しています。
+        </p>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>ツール</th>
+              <th>強み</th>
+              <th>初学者向き</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>git diff</td>
+              <td>バージョン管理と統合された強力な差分機能</td>
+              <td>△（コマンド操作・Git環境が必要）</td>
+            </tr>
+            <tr>
+              <td>VS Code 差分表示</td>
+              <td>同一ファイルの変更履歴比較に最適</td>
+              <td>○（ただし2つの別コードの比較には手間）</td>
+            </tr>
+            <tr>
+              <td>その他オンライン diff</td>
+              <td>多機能・高速</td>
+              <td>△（unified diff形式が多く読みにくい）</td>
+            </tr>
+            <tr>
+              <td><strong>CodeDiff Checker</strong></td>
+              <td>並列表示・文字レベルハイライト・全角スペース検出</td>
+              <td>◎（登録不要、貼って押すだけ）</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="divider" />
+
       <!-- よくある質問 -->
       <section aria-label="よくある質問">
         <h2>よくある質問</h2>
@@ -316,17 +489,47 @@
 
         <details>
           <summary>どのプログラミング言語に対応していますか？</summary>
-          <p>テキストベースで比較するため、Python・JavaScript・Java・TypeScript・CSS・HTMLなどあらゆるプログラミング言語のコードに対応しています。</p>
+          <p>テキストベースで比較するため、Python・JavaScript・TypeScript・Java・Ruby・PHP・Go・Rust・C/C++・Swift・Kotlin・CSS・HTML・SQL・YAML・Markdownなど、あらゆるプログラミング言語およびテキスト形式のファイルに対応しています。</p>
         </details>
 
         <details>
           <summary>貼り付けたコードはサーバーに送信されますか？</summary>
-          <p>いいえ。差分の比較処理はすべてブラウザ上で完結するため、入力したコードは外部サーバーに送信されません。</p>
+          <p>いいえ。差分の比較処理はすべてブラウザ上のJavaScriptで完結するため、入力したコードが外部サーバーに送信されることはありません。社内コードや個人情報を含むテキストでも安心して比較できます。</p>
         </details>
 
         <details>
           <summary>空白やインデントの違いだけを無視できますか？</summary>
           <p>「空白を無視」チェックボックスをオンにすることで、行末の空白やインデントの差を無視して比較できます。デフォルトはオフです。行末の空白もバグの原因になるため、通常はオフのまま使用してください。</p>
+        </details>
+
+        <details>
+          <summary>全角スペースの混入は検出できますか？</summary>
+          <p>はい。日本語入力中にIMEから誤って入った全角スペース（U+3000）は、結果画面で <span class="fullwidth-marker">□</span> のオレンジマークで可視化されます。さらに結果上部に警告バナーが表示され、どちらの側に全角スペースが含まれているかが一目でわかります。</p>
+        </details>
+
+        <details>
+          <summary>git diffとの違いは何ですか？</summary>
+          <p>git diffはGitリポジトリ内でのバージョン管理と一体化した強力なツールですが、コマンドライン操作が必要で、別々のファイルやコピペしたテキスト同士の比較には不向きです。CodeDiff Checkerはブラウザに貼り付けるだけで使え、初学者がお手本コードと自分のコードを見比べる用途に最適化されています。</p>
+        </details>
+
+        <details>
+          <summary>ファイルをドラッグ＆ドロップで読み込めますか？</summary>
+          <p>はい。テキストエディタにファイルをドラッグ＆ドロップすれば、内容が自動的に読み込まれます。HTML・CSS・JS・Python・SQLなどのテキストファイル形式に対応しています。</p>
+        </details>
+
+        <details>
+          <summary>スマートフォンやタブレットでも使えますか？</summary>
+          <p>はい。レスポンシブデザインに対応しており、スマートフォン・タブレットのブラウザでも利用できます。画面が狭い場合は、コードエリアと差分結果が縦並びで表示されます。</p>
+        </details>
+
+        <details>
+          <summary>長いコードや大量のテキストでも比較できますか？</summary>
+          <p>処理はすべてブラウザ上で行われるため、お使いの端末性能に依存します。一般的なノートPC・スマートフォンであれば、数千行程度のコードでも問題なく差分を表示できます。</p>
+        </details>
+
+        <details>
+          <summary>プログラミング初心者でも使えますか？</summary>
+          <p>はい、初心者の方を主な対象として設計されています。専門用語や設定を覚える必要はなく、お手本のコードと自分のコードを左右に貼って「差分をチェック」ボタンを押すだけで、どこが間違っているか色で示されます。</p>
         </details>
       </section>
 
@@ -360,7 +563,7 @@
           "name": "どのプログラミング言語に対応していますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "テキストベースで比較するため、Python・JavaScript・Java・TypeScript・CSS・HTMLなどあらゆるプログラミング言語のコードに対応しています。"
+            "text": "テキストベースで比較するため、Python・JavaScript・TypeScript・Java・Ruby・PHP・Go・Rust・C/C++・Swift・Kotlin・CSS・HTML・SQL・YAML・Markdownなど、あらゆるプログラミング言語およびテキスト形式のファイルに対応しています。"
           }
         },
         {
@@ -368,7 +571,7 @@
           "name": "貼り付けたコードはサーバーに送信されますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "いいえ。差分の比較処理はすべてブラウザ上で完結するため、入力したコードは外部サーバーに送信されません。"
+            "text": "いいえ。差分の比較処理はすべてブラウザ上のJavaScriptで完結するため、入力したコードが外部サーバーに送信されることはありません。社内コードや個人情報を含むテキストでも安心して比較できます。"
           }
         },
         {
@@ -376,7 +579,55 @@
           "name": "空白やインデントの違いだけを無視できますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "「空白を無視」チェックボックスをオンにすることで、行末の空白やインデントの差を無視して比較できます。"
+            "text": "「空白を無視」チェックボックスをオンにすることで、行末の空白やインデントの差を無視して比較できます。デフォルトはオフです。行末の空白もバグの原因になるため、通常はオフのまま使用してください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "全角スペースの混入は検出できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。日本語入力中にIMEから誤って入った全角スペース（U+3000）は、結果画面で□のオレンジマークで可視化されます。さらに結果上部に警告バナーが表示され、どちらの側に全角スペースが含まれているかが一目でわかります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "git diffとの違いは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "git diffはGitリポジトリ内でのバージョン管理と一体化した強力なツールですが、コマンドライン操作が必要で、別々のファイルやコピペしたテキスト同士の比較には不向きです。CodeDiff Checkerはブラウザに貼り付けるだけで使え、初学者がお手本コードと自分のコードを見比べる用途に最適化されています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ファイルをドラッグ＆ドロップで読み込めますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。テキストエディタにファイルをドラッグ＆ドロップすれば、内容が自動的に読み込まれます。HTML・CSS・JS・Python・SQLなどのテキストファイル形式に対応しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "スマートフォンやタブレットでも使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。レスポンシブデザインに対応しており、スマートフォン・タブレットのブラウザでも利用できます。画面が狭い場合は、コードエリアと差分結果が縦並びで表示されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "長いコードや大量のテキストでも比較できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "処理はすべてブラウザ上で行われるため、お使いの端末性能に依存します。一般的なノートPC・スマートフォンであれば、数千行程度のコードでも問題なく差分を表示できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "プログラミング初心者でも使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、初心者の方を主な対象として設計されています。専門用語や設定を覚える必要はなく、お手本のコードと自分のコードを左右に貼って差分をチェックボタンを押すだけで、どこが間違っているか色で示されます。"
           }
         }
       ]
