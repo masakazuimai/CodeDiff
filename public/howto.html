@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CodeDiff Checker 使い方ガイド | コード差分の確認方法・言語別ユースケース・FAQ</title>
-    <meta name="description" content="CodeDiff Checkerの使い方を3ステップで解説。CSS・HTML・JavaScript・Python・SQLのコード差分確認方法、git diffやVS Codeとの違い、よくある質問まで初心者向けにまとめています。" />
+    <title>CodeDiff Checkerの使い方｜コード差分の確認方法ガイド｜CodeQuest.work</title>
+    <meta name="description" content="CodeDiff Checkerの使い方を3ステップで解説。CSS・HTML・JavaScript・Python・SQLのコード差分確認方法、git diffやVS Codeとの違い、よくある質問まで初心者向けにまとめています。CodeQuest.work提供の無料コード比較ツールです。" />
     <meta name="author" content="CodeQuest.work" />
     <link rel="canonical" href="https://codequest.work/generator/diff-checker/howto.html" />
 
     <!-- OGP設定 -->
-    <meta property="og:title" content="CodeDiff Checker 使い方 | 3ステップでコード差分を確認する方法" />
+    <meta property="og:title" content="CodeDiff Checkerの使い方｜コード差分の確認方法ガイド｜CodeQuest.work" />
     <meta property="og:description" content="CodeDiff Checkerの使い方を3ステップで解説。コードやテキストの差分を色で視覚的に確認できる無料ツールの操作方法を初心者向けに説明します。" />
     <meta property="og:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
     <meta property="og:image:width" content="1200" />
@@ -21,7 +21,7 @@
 
     <!-- Twitterカード設定 -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CodeDiff Checker 使い方 | 3ステップでコード差分を確認する方法" />
+    <meta name="twitter:title" content="CodeDiff Checkerの使い方｜コード差分の確認方法ガイド｜CodeQuest.work" />
     <meta name="twitter:description" content="CodeDiff Checkerの使い方を3ステップで解説。コードやテキストの差分を色で視覚的に確認できる無料ツールの操作方法を初心者向けに説明します。" />
     <meta name="twitter:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
     <meta name="twitter:site" content="@CodeQuest_work" />
@@ -38,7 +38,7 @@
     <style>
       .howto-wrap {
         width: 80%;
-        max-width: 860px;
+        max-width: 1100px;
         margin: 2% auto 48px;
         padding: 40px 48px;
         background: #e0e0e0;
@@ -446,34 +446,54 @@
         <table class="compare-table">
           <thead>
             <tr>
-              <th>ツール</th>
-              <th>強み</th>
-              <th>初学者向き</th>
+              <th style="width:18%">ツール</th>
+              <th style="width:16%">種別</th>
+              <th style="width:40%">強み</th>
+              <th style="width:26%">初学者向き</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>git diff</td>
+              <td>CLI</td>
               <td>バージョン管理と統合された強力な差分機能</td>
               <td>△（コマンド操作・Git環境が必要）</td>
             </tr>
             <tr>
+              <td>DF（Windows用）</td>
+              <td>デスクトップ</td>
+              <td>軽量・窓の杜で定番のWindows向け差分チェックツール</td>
+              <td>○（インストールが必要）</td>
+            </tr>
+            <tr>
+              <td>WinMerge</td>
+              <td>デスクトップ</td>
+              <td>フォルダ比較・3ファイル比較に対応</td>
+              <td>○（Windows専用・インストールが必要）</td>
+            </tr>
+            <tr>
               <td>VS Code 差分表示</td>
+              <td>エディタ</td>
               <td>同一ファイルの変更履歴比較に最適</td>
               <td>○（ただし2つの別コードの比較には手間）</td>
             </tr>
             <tr>
-              <td>その他オンライン diff</td>
-              <td>多機能・高速</td>
-              <td>△（unified diff形式が多く読みにくい）</td>
+              <td>Diffchecker.com</td>
+              <td>オンライン</td>
+              <td>多機能・エクセルやPDFの差分にも対応</td>
+              <td>△（英語UI・unified diff形式）</td>
             </tr>
             <tr>
               <td><strong>CodeDiff Checker</strong></td>
+              <td>オンライン</td>
               <td>並列表示・文字レベルハイライト・全角スペース検出</td>
-              <td>◎（登録不要、貼って押すだけ）</td>
+              <td>◎（無料・インストール不要・登録不要）</td>
             </tr>
           </tbody>
         </table>
+        <p style="font-size:16px; color:#555; line-height:1.7; margin-top:12px;">
+          DF・WinMergeなどのデスクトップ型はWindows・Macへのインストールが必要ですが、CodeDiff Checkerはインストール不要でブラウザだけで使える無料の差分チェックツールです。Windows・Mac・Linux・スマートフォンなどOSを問わず利用できます。
+        </p>
       </section>
 
       <hr class="divider" />
