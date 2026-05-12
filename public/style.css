@@ -63,7 +63,7 @@ header h2 {
 
 .code {
   width: 100%;
-  height: 35vh;
+  min-height: 65svh;
   padding: 15px;
   font-family: monospace;
   font-size: 16px;
@@ -151,9 +151,15 @@ button:disabled {
     -4px -4px 8px rgba(255, 255, 255, 0.6);
 }
 
-.summary-changed { color: #b45309; }
-.summary-added   { color: #166534; }
-.summary-removed { color: #991b1b; }
+.summary-changed {
+  color: #b45309;
+}
+.summary-added {
+  color: #166534;
+}
+.summary-removed {
+  color: #991b1b;
+}
 
 /* 並列diff */
 .split-diff {
@@ -206,20 +212,24 @@ button:disabled {
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.split-line.line-unchanged   { background: #fafafa; }
-.split-line.line-changed-old { background: #fff0f0; }
-.split-line.line-changed-new { background: #f0fff4; }
-.split-line.line-removed     { background: #ffe4e4; }
-.split-line.line-added       { background: #dcfce7; }
+.split-line.line-unchanged {
+  background: #fafafa;
+}
+.split-line.line-changed-old {
+  background: #fff0f0;
+}
+.split-line.line-changed-new {
+  background: #f0fff4;
+}
+.split-line.line-removed {
+  background: #ffe4e4;
+}
+.split-line.line-added {
+  background: #dcfce7;
+}
 .split-line.line-placeholder {
   background: #e8e8e8;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 5px,
-    rgba(0, 0, 0, 0.05) 5px,
-    rgba(0, 0, 0, 0.05) 10px
-  );
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.05) 5px, rgba(0, 0, 0, 0.05) 10px);
 }
 
 .ln {
@@ -344,7 +354,10 @@ button:disabled {
 }
 
 @media screen and (max-width: 768px) {
-  .seo-content { width: 95%; padding: 20px; }
+  .seo-content {
+    width: 95%;
+    padding: 20px;
+  }
 }
 
 footer {
@@ -386,12 +399,33 @@ footer .howto-link:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .container      { flex-direction: column; gap: 20px; }
-  .code-container { width: 100%; }
-  .code           { height: 120px; }
-  .button-container { width: 95%; margin-top: 20px; }
-  button          { width: 100%; }
-  .split-diff     { flex-direction: column; width: 95%; }
-  .split-panel:first-child { border-right: none; border-bottom: 2px solid #ccc; }
-  .diff-summary, .match-message { width: 95%; }
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .code-container {
+    width: 100%;
+  }
+  .code {
+    height: 120px;
+  }
+  .button-container {
+    width: 95%;
+    margin-top: 20px;
+  }
+  button {
+    width: 100%;
+  }
+  .split-diff {
+    flex-direction: column;
+    width: 95%;
+  }
+  .split-panel:first-child {
+    border-right: none;
+    border-bottom: 2px solid #ccc;
+  }
+  .diff-summary,
+  .match-message {
+    width: 95%;
+  }
 }
