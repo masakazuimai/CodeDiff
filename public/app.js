@@ -8,6 +8,31 @@
     ignoreWs: document.getElementById("ignoreWhitespace"),
   };
 
+  // 実行時に表示する文言（<html lang> で日本語/英語を切替。ロジックは共通）
+  const I18N = {
+    ja: {
+      enterBoth: "両方のコードを入力してください",
+      fwDetected: "⚠ 全角スペースが検出されました：",
+      identical: "✓ コードは完全に一致しています",
+      changed: (n) => `〜${n}行 変更`,
+      added: (n) => `＋${n}行 追加`,
+      removed: (n) => `－${n}行 削除`,
+      panelOld: "sample code（元のコード）",
+      panelNew: "my code（自分のコード）",
+    },
+    en: {
+      enterBoth: "Please enter code in both fields.",
+      fwDetected: "⚠ Full-width space detected: ",
+      identical: "✓ The two inputs are identical",
+      changed: (n) => `~${n} changed`,
+      added: (n) => `+${n} added`,
+      removed: (n) => `−${n} removed`,
+      panelOld: "sample code (original)",
+      panelNew: "my code (yours)",
+    },
+  };
+  const T = I18N[(document.documentElement.lang || "ja").slice(0, 2)] || I18N.ja;
+
   // 全角スペースをdiff用センチネル文字に変換（空白と区別するため）
   const FW = "\uE000";
 
@@ -157,7 +182,7 @@
     const code2 = normalizeCode($.code2.innerText.trim(), ignoreWhitespace);
 
     if (!code1 || !code2) {
-      alert("両方のコードを入力してください");
+      alert(T.enterBoth);
       return;
     }
 
@@ -170,8 +195,8 @@
 
       if (code1 === code2) {
         $.result.innerHTML =
-          (fw1 || fw2 ? `<div class="fullwidth-warning">⚠ 全角スペースが検出されました：${[fw1 && "sample code", fw2 && "my code"].filter(Boolean).join(" / ")}</div>` : "") +
-          '<div class="match-message">✓ コードは完全に一致しています</div>';
+          (fw1 || fw2 ? `<div class="fullwidth-warning">${T.fwDetected}${[fw1 && "sample code", fw2 && "my code"].filter(Boolean).join(" / ")}</div>` : "") +
+          `<div class="match-message">${T.identical}</div>`;
         $.result.scrollIntoView({ behavior: "smooth", block: "start" });
         return;
       }
@@ -179,20 +204,20 @@
       const { html1, html2, addedCount, removedCount, changedCount } = renderSplitDiff(code1, code2);
 
       const summaryParts = [];
-      if (changedCount > 0) summaryParts.push(`<span class="summary-changed">〜${changedCount}行 変更</span>`);
-      if (addedCount > 0)   summaryParts.push(`<span class="summary-added">＋${addedCount}行 追加</span>`);
-      if (removedCount > 0) summaryParts.push(`<span class="summary-removed">－${removedCount}行 削除</span>`);
+      if (changedCount > 0) summaryParts.push(`<span class="summary-changed">${T.changed(changedCount)}</span>`);
+      if (addedCount > 0)   summaryParts.push(`<span class="summary-added">${T.added(addedCount)}</span>`);
+      if (removedCount > 0) summaryParts.push(`<span class="summary-removed">${T.removed(removedCount)}</span>`);
 
       $.result.innerHTML =
-        (fw1 || fw2 ? `<div class="fullwidth-warning">⚠ 全角スペースが検出されました：${[fw1 && "sample code", fw2 && "my code"].filter(Boolean).join(" / ")}</div>` : "") +
+        (fw1 || fw2 ? `<div class="fullwidth-warning">${T.fwDetected}${[fw1 && "sample code", fw2 && "my code"].filter(Boolean).join(" / ")}</div>` : "") +
         `<div class="diff-summary">${summaryParts.join("")}</div>` +
         `<div class="split-diff">` +
           `<div class="split-panel">` +
-            `<div class="split-panel-header">sample code（元のコード）</div>` +
+            `<div class="split-panel-header">${T.panelOld}</div>` +
             `<div class="split-panel-body" id="diffBody1">${html1}</div>` +
           `</div>` +
           `<div class="split-panel">` +
-            `<div class="split-panel-header">my code（自分のコード）</div>` +
+            `<div class="split-panel-header">${T.panelNew}</div>` +
             `<div class="split-panel-body" id="diffBody2">${html2}</div>` +
           `</div>` +
         `</div>`;

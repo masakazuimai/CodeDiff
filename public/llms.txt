@@ -30,3 +30,8 @@
 
 - [ツール本体](https://codequest.work/generator/diff-checker/)
 - [使い方ガイド](https://codequest.work/generator/diff-checker/howto.html)
+
+## English version
+
+- [Tool (English)](https://codequest.work/generator/diff-checker/en/)
+- [How-to guide (English)](https://codequest.work/generator/diff-checker/en/howto.html)

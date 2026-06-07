@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>How to Use CodeDiff Checker – Online Code Diff Guide</title>
+    <meta name="description" content="Learn how to use CodeDiff Checker in 3 steps. How to check code differences in CSS, HTML, JavaScript, Python, and SQL, how it differs from git diff and VS Code, plus a FAQ. A free online code compare tool by CodeQuest.work." />
+    <meta name="author" content="CodeQuest.work" />
+    <link rel="canonical" href="https://codequest.work/generator/diff-checker/en/howto.html" />
+
+    <!-- hreflang (language versions) -->
+    <link rel="alternate" hreflang="ja" href="https://codequest.work/generator/diff-checker/howto.html" />
+    <link rel="alternate" hreflang="en" href="https://codequest.work/generator/diff-checker/en/howto.html" />
+    <link rel="alternate" hreflang="x-default" href="https://codequest.work/generator/diff-checker/howto.html" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="How to Use CodeDiff Checker – Online Code Diff Guide" />
+    <meta property="og:description" content="Learn how to use CodeDiff Checker in 3 steps. A free online tool that visually highlights the differences between two blocks of code or text." />
+    <meta property="og:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://codequest.work/generator/diff-checker/en/howto.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="CodeQuest.work" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Use CodeDiff Checker – Online Code Diff Guide" />
+    <meta name="twitter:description" content="Learn how to use CodeDiff Checker in 3 steps. A free online tool that visually highlights the differences between two blocks of code or text." />
+    <meta name="twitter:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
+    <meta name="twitter:site" content="@CodeQuest_work" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .howto-wrap {
+        width: 80%;
+        max-width: 1100px;
+        margin: 2% auto 48px;
+        padding: 40px 48px;
+        background: #e0e0e0;
+        border-radius: 15px;
+        box-shadow:
+          10px 10px 15px rgba(0, 0, 0, 0.1),
+          -10px -10px 15px rgba(255, 255, 255, 0.7);
+      }
+
+      .howto-wrap h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #222;
+      }
+
+      .howto-wrap .subtitle {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
+
+      .step {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 36px;
+        align-items: flex-start;
+      }
+
+      .step-num {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background: #2a2a2a;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .step-body h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #222;
+      }
+
+      .step-body p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+
+      .tip {
+        background: #f0f0f0;
+        border-left: 4px solid #2a2a2a;
+        border-radius: 0 8px 8px 0;
+        padding: 10px 16px;
+        font-size: 16px;
+        color: #444;
+        margin-top: 8px;
+        box-shadow:
+          inset 3px 3px 6px rgba(0, 0, 0, 0.06),
+          inset -3px -3px 6px rgba(255, 255, 255, 0.6);
+      }
+
+      .color-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .color-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        color: #444;
+      }
+
+      .swatch {
+        width: 80px;
+        height: 28px;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+
+      .swatch-changed-old { background: #fff0f0; border: 1px solid #fca5a5; }
+      .swatch-changed-new { background: #f0fff4; border: 1px solid #6ee7b7; }
+      .swatch-removed     { background: #ffe4e4; border: 1px solid #fca5a5; }
+      .swatch-added       { background: #dcfce7; border: 1px solid #6ee7b7; }
+      .swatch-char-r      { background: #fca5a5; border-radius: 3px; width: 80px; height: 28px; }
+      .swatch-char-a      { background: #6ee7b7; border-radius: 3px; width: 80px; height: 28px; }
+
+      .divider {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 36px 0;
+      }
+
+      .back-btn {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 10px 24px;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+        cursor: pointer;
+        background: #e0e0e0;
+        border: none;
+        border-radius: 10px;
+        box-shadow:
+          6px 6px 12px rgba(0, 0, 0, 0.1),
+          -6px -6px 12px rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+      }
+
+      .back-btn:hover {
+        background: #d1d1d1;
+        text-decoration: none;
+      }
+
+      .howto-wrap section h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #222;
+      }
+
+      .howto-wrap details {
+        background: #f0f0f0;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        box-shadow:
+          inset 2px 2px 5px rgba(0, 0, 0, 0.08),
+          inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+      }
+
+      .howto-wrap summary {
+        padding: 12px 16px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .howto-wrap summary::before {
+        content: "Q.";
+        color: #888;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .howto-wrap details[open] {
+        padding-bottom: 12px;
+      }
+
+      .howto-wrap details p {
+        padding: 0 16px 0 42px;
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .usecase-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-top: 12px;
+      }
+
+      .usecase-card {
+        background: #f0f0f0;
+        border-radius: 10px;
+        padding: 16px 18px;
+        box-shadow:
+          inset 3px 3px 6px rgba(0, 0, 0, 0.06),
+          inset -3px -3px 6px rgba(255, 255, 255, 0.6);
+      }
+
+      .usecase-card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .usecase-card .lang-tag {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #2a2a2a;
+        padding: 2px 10px;
+        border-radius: 12px;
+      }
+
+      .usecase-card p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .compare-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 12px;
+        font-size: 16px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow:
+          inset 2px 2px 5px rgba(0, 0, 0, 0.06),
+          inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+      }
+
+      .compare-table th,
+      .compare-table td {
+        padding: 12px 14px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+        color: #444;
+      }
+
+      .compare-table th {
+        background: #2a2a2a;
+        color: #f0f0f0;
+        font-weight: 600;
+      }
+
+      .compare-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .compare-table td:first-child {
+        font-weight: 600;
+        color: #222;
+      }
+
+      @media screen and (max-width: 768px) {
+        .howto-wrap { width: 95%; padding: 24px 20px; }
+        .step { flex-direction: column; gap: 10px; }
+        .compare-table { font-size: 16px; }
+        .compare-table th, .compare-table td { padding: 10px 8px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p style="color:#f0f0f0; font-size:16px; font-weight:600;">CodeDiff Checker — How-to Guide</p>
+      <p class="lang-switch" style="font-size:16px; margin-top:4px;">
+        <a href="../howto.html" hreflang="ja" style="color:#f0f0f0;">日本語</a>
+        <span aria-hidden="true" style="opacity:0.5; color:#f0f0f0;"> / </span>
+        <span aria-current="true" style="font-weight:600; color:#f0f0f0;">English</span>
+      </p>
+    </header>
+
+    <div class="howto-wrap">
+      <h1>How to Use CodeDiff Checker</h1>
+      <p class="subtitle">A tool that visually highlights the differences between code or text. Even first-time users can get going in 3 steps.</p>
+
+      <!-- Step 1 -->
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h2>Paste your code</h2>
+          <p>
+            Paste the "reference / sample code" into the left box (<strong>sample code</strong>),<br>
+            and "your code" into the right box (<strong>my code</strong>).
+          </p>
+          <div class="tip">
+            💡 You can also drag &amp; drop a file directly to load it.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h2>Click the "Check Diff" button</h2>
+          <p>Click the button to display the differences.</p>
+          <div class="tip">
+            💡 "Ignore whitespace" is off by default. Because trailing spaces can also cause bugs, keep it off in most cases. Turn it on only when differences in editor settings produce noise.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h2>Read the color meanings</h2>
+          <p>Differences are shown visually with colors.</p>
+          <div class="color-legend">
+            <div class="color-row">
+              <div class="swatch swatch-changed-old"></div>
+              <span><strong>Light red (left panel)</strong> — a changed line (original code)</span>
+            </div>
+            <div class="color-row">
+              <div class="swatch swatch-changed-new"></div>
+              <span><strong>Light green (right panel)</strong> — a changed line (your code)</span>
+            </div>
+            <div class="color-row">
+              <div class="swatch swatch-removed"></div>
+              <span><strong>Dark red (left only)</strong> — a line missing from your code (removed)</span>
+            </div>
+            <div class="color-row">
+              <div class="swatch swatch-added"></div>
+              <span><strong>Dark green (right only)</strong> — a line not in the sample (added)</span>
+            </div>
+            <div class="color-row">
+              <div class="swatch swatch-char-r"></div>
+              <span><strong>Red highlight</strong> — changed characters (the removed part)</span>
+            </div>
+            <div class="color-row">
+              <div class="swatch swatch-char-a"></div>
+              <span><strong>Green highlight</strong> — changed words (the added part)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Common use cases -->
+      <div class="step">
+        <div class="step-num" style="background:#555;">?</div>
+        <div class="step-body">
+          <h2>When to use it</h2>
+          <p>・When you want to compare the answer with your own code while learning to program</p>
+          <p>・When you want to see what you changed between before and after an edit</p>
+          <p>・When you want to find changed parts in article or document text</p>
+          <p>・When you want to check whether pasted code contains stray characters</p>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Use cases by language -->
+      <section aria-label="Use cases by language">
+        <h2>Use cases by programming language</h2>
+        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+          Here are typical mistake-spotting scenarios where CodeDiff Checker shines, by language.
+        </p>
+        <div class="usecase-grid">
+          <div class="usecase-card">
+            <h3><span class="lang-tag">CSS</span>Typos in property values</h3>
+            <p>
+              Spot value differences like <code>border-radius: 50%;</code> vs <code>border-radius: 5px;</code>, or a misspelling of <code>display: flex</code>, at a glance with color-coded highlights on both sides.
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">HTML</span>Missing closing tags</h3>
+            <p>
+              Pinpoint forgotten closing tags for <code>&lt;div&gt;</code> or <code>&lt;section&gt;</code>, and attribute typos (<code>class</code> vs <code>clas</code>), at the line and character level.
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">JavaScript</span>Semicolons &amp; brackets</h3>
+            <p>
+              Compare error-prone details like a <code>const</code> / <code>cosnt</code> typo, missing braces or commas, and wrong function arguments.
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">Python</span>Indentation differences</h3>
+            <p>
+              In Python, indentation is part of the syntax. Compare with "Ignore whitespace" off to detect indentation drift from the sample code.
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">SQL</span>Commas &amp; keyword position</h3>
+            <p>
+              Check SQL mistakes that are hard to catch before running — comma positions in a <code>SELECT</code> clause, the wrong <code>JOIN</code> type, or a table-name typo — via the diff.
+            </p>
+          </div>
+          <div class="usecase-card">
+            <h3><span class="lang-tag">Japanese</span>Stray full-width spaces</h3>
+            <p>
+              Visualize full-width spaces (<code>　</code>) accidentally entered via an IME with a <span class="fullwidth-marker">□</span> marker — a classic cause of errors in pasted code.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Comparison with other tools -->
+      <section aria-label="Comparison with other diff tools">
+        <h2>How it differs from other diff tools</h2>
+        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+          There are many ways to check differences, but CodeDiff Checker is built for "learners who want something they can use casually, in the browser alone."
+        </p>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="width:18%">Tool</th>
+              <th style="width:16%">Type</th>
+              <th style="width:40%">Strength</th>
+              <th style="width:26%">Beginner-friendly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>git diff</td>
+              <td>CLI</td>
+              <td>Powerful diff integrated with version control</td>
+              <td>△ (needs command-line skills and a Git setup)</td>
+            </tr>
+            <tr>
+              <td>Meld</td>
+              <td>Desktop</td>
+              <td>Lightweight, popular cross-platform diff tool</td>
+              <td>○ (installation required)</td>
+            </tr>
+            <tr>
+              <td>WinMerge</td>
+              <td>Desktop</td>
+              <td>Supports folder comparison and 3-way merge</td>
+              <td>○ (Windows only, installation required)</td>
+            </tr>
+            <tr>
+              <td>VS Code diff view</td>
+              <td>Editor</td>
+              <td>Best for comparing change history of the same file</td>
+              <td>○ (but clunky for comparing two separate snippets)</td>
+            </tr>
+            <tr>
+              <td>Diffchecker.com</td>
+              <td>Online</td>
+              <td>Feature-rich; also handles Excel and PDF diffs</td>
+              <td>△ (unified diff format)</td>
+            </tr>
+            <tr>
+              <td><strong>CodeDiff Checker</strong></td>
+              <td>Online</td>
+              <td>Side-by-side view, character-level highlighting, full-width space detection</td>
+              <td>◎ (free, no install, no signup)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:16px; color:#555; line-height:1.7; margin-top:12px;">
+          Desktop tools like Meld and WinMerge require installation on Windows or Mac, but CodeDiff Checker needs no install and works in the browser alone. It runs on any OS — Windows, Mac, Linux, and smartphones.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- FAQ -->
+      <section aria-label="Frequently asked questions">
+        <h2>Frequently asked questions</h2>
+
+        <details>
+          <summary>Is CodeDiff Checker free to use?</summary>
+          <p>Yes, it is completely free. No account or installation is required — you can use it instantly in your browser.</p>
+        </details>
+
+        <details>
+          <summary>Which programming languages are supported?</summary>
+          <p>Because it compares on a text basis, it supports any programming language and text file format — Python, JavaScript, TypeScript, Java, Ruby, PHP, Go, Rust, C/C++, Swift, Kotlin, CSS, HTML, SQL, YAML, Markdown, and more.</p>
+        </details>
+
+        <details>
+          <summary>Is my pasted code sent to a server?</summary>
+          <p>No. All diff processing runs entirely in your browser's JavaScript, so your input is never sent to an external server. You can safely compare proprietary code or text containing personal information.</p>
+        </details>
+
+        <details>
+          <summary>Can I ignore only whitespace or indentation differences?</summary>
+          <p>Turn on the "Ignore whitespace" checkbox to compare while ignoring trailing spaces and indentation differences. It is off by default. Because trailing spaces can also cause bugs, keep it off in most cases.</p>
+        </details>
+
+        <details>
+          <summary>Can it detect stray full-width spaces?</summary>
+          <p>Yes. Full-width spaces (U+3000) accidentally entered via a Japanese IME are visualized with an orange <span class="fullwidth-marker">□</span> marker in the results. A warning banner also appears at the top, so you can see at a glance which side contains them.</p>
+        </details>
+
+        <details>
+          <summary>How is it different from git diff?</summary>
+          <p>git diff is a powerful tool integrated with version control in a Git repository, but it requires command-line operation and is not suited to comparing separate files or pasted snippets. CodeDiff Checker works by simply pasting into the browser and is optimized for comparing your code against a reference.</p>
+        </details>
+
+        <details>
+          <summary>Can I load files via drag and drop?</summary>
+          <p>Yes. Drag and drop a file onto a text editor area and its contents load automatically. It supports text file formats such as HTML, CSS, JS, Python, and SQL.</p>
+        </details>
+
+        <details>
+          <summary>Does it work on smartphones and tablets?</summary>
+          <p>Yes. It is responsive and works in smartphone and tablet browsers. On narrow screens, the code areas and diff results stack vertically.</p>
+        </details>
+
+        <details>
+          <summary>Can it compare long code or large amounts of text?</summary>
+          <p>All processing happens in your browser, so it depends on your device's performance. A typical laptop or smartphone can display diffs for several thousand lines of code without issues.</p>
+        </details>
+
+        <details>
+          <summary>Can beginners use it?</summary>
+          <p>Yes — it is designed primarily for beginners. There is no jargon or setup to learn: paste the sample code and your code side by side, press "Check Diff," and the differences are shown in color.</p>
+        </details>
+      </section>
+
+      <a href="index.html" class="back-btn">← Back to the tool</a>
+    </div>
+
+    <footer>
+      <p>© 2026 CodeDiff Checker | Created by <a href="https://codequest.work/" target="_blank" rel="noopener noreferrer">CodeQuest.work</a></p>
+      <p>
+        <a href="https://codequest.work/category/generator/" target="_blank" rel="noopener">More generators →</a>
+      </p>
+    </footer>
+
+    <!-- Structured data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is CodeDiff Checker free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it is completely free. No account or installation is required — you can use it instantly in your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which programming languages are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because it compares on a text basis, it supports any programming language and text file format — Python, JavaScript, TypeScript, Java, Ruby, PHP, Go, Rust, C/C++, Swift, Kotlin, CSS, HTML, SQL, YAML, Markdown, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my pasted code sent to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All diff processing runs entirely in your browser's JavaScript, so your input is never sent to an external server. You can safely compare proprietary code or text containing personal information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I ignore only whitespace or indentation differences?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Turn on the \"Ignore whitespace\" checkbox to compare while ignoring trailing spaces and indentation differences. It is off by default. Because trailing spaces can also cause bugs, keep it off in most cases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it detect stray full-width spaces?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Full-width spaces (U+3000) accidentally entered via a Japanese IME are visualized with an orange marker in the results. A warning banner also appears at the top, so you can see at a glance which side contains them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is it different from git diff?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "git diff is a powerful tool integrated with version control in a Git repository, but it requires command-line operation and is not suited to comparing separate files or pasted snippets. CodeDiff Checker works by simply pasting into the browser and is optimized for comparing your code against a reference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I load files via drag and drop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Drag and drop a file onto a text editor area and its contents load automatically. It supports text file formats such as HTML, CSS, JS, Python, and SQL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on smartphones and tablets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It is responsive and works in smartphone and tablet browsers. On narrow screens, the code areas and diff results stack vertically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it compare long code or large amounts of text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All processing happens in your browser, so it depends on your device's performance. A typical laptop or smartphone can display diffs for several thousand lines of code without issues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can beginners use it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — it is designed primarily for beginners. There is no jargon or setup to learn: paste the sample code and your code side by side, press Check Diff, and the differences are shown in color."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "inLanguage": "en",
+      "name": "How to use CodeDiff Checker",
+      "description": "How to visually compare two blocks of code or text with colors, in 3 steps.",
+      "url": "https://codequest.work/generator/diff-checker/en/howto.html",
+      "tool": {
+        "@type": "HowToTool",
+        "name": "CodeDiff Checker",
+        "url": "https://codequest.work/generator/diff-checker/en/"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Paste your code",
+          "text": "Paste the reference / sample code into the left box (sample code), and your code into the right box (my code). You can also drag and drop a file to load it."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Click the Check Diff button",
+          "text": "Click the button to display the differences. To ignore whitespace differences, turn on the Ignore whitespace checkbox."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Read the color meanings",
+          "text": "Light red is a changed line (original code), light green is a changed line (your code), dark red is a removed line, and dark green is an added line."
+        }
+      ]
+    }
+    </script>
+  </body>
+</html>

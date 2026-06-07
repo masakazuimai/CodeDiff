@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z6M3CJEV3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-7Z6M3CJEV3");
+    </script>
+
+    <title>CodeDiff Checker – Free Online Code & Text Diff Tool</title>
+
+    <!-- SEO meta -->
+    <meta name="description" content="Compare two blocks of code or text and highlight the differences instantly. Free online diff checker — no signup, no install, runs entirely in your browser. Character-level highlighting for added, removed, and changed lines." />
+    <meta name="keywords" content="code diff, diff checker, diff tool, online diff, diff check, compare code online, text diff, code difference, code compare tool" />
+    <meta name="author" content="CodeQuest.work" />
+    <link rel="canonical" href="https://codequest.work/generator/diff-checker/en/" />
+
+    <!-- hreflang (language versions) -->
+    <link rel="alternate" hreflang="ja" href="https://codequest.work/generator/diff-checker/" />
+    <link rel="alternate" hreflang="en" href="https://codequest.work/generator/diff-checker/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://codequest.work/generator/diff-checker/" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="CodeDiff Checker – Free Online Code & Text Diff Tool" />
+    <meta property="og:description" content="Compare two blocks of code or text and highlight the differences instantly. Free, no signup, no install — runs in your browser." />
+    <meta property="og:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://codequest.work/generator/diff-checker/en/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CodeQuest.work" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CodeDiff Checker – Free Online Code & Text Diff Tool" />
+    <meta name="twitter:description" content="Compare two blocks of code or text and highlight the differences instantly. Free, no signup, no install — runs in your browser." />
+    <meta name="twitter:image" content="https://codequest.work/generator/diff-checker/ogp.png" />
+    <meta name="twitter:site" content="@CodeQuest_work" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4871781946658288"
+         crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <h1>CodeDiff Checker <span style="font-size: 0.5em; font-weight: 300; opacity: 0.7;">- Free Online Diff Tool</span></h1>
+      <p class="lang-switch" style="font-size:16px; margin-top:4px;">
+        <a href="../" hreflang="ja">日本語</a>
+        <span aria-hidden="true" style="opacity:0.4;"> / </span>
+        <span aria-current="true" style="font-weight:600;">English</span>
+      </p>
+    </header>
+
+    <div class="container">
+      <div class="code-container">
+        <label for="code1">sample code:</label>
+        <div id="code1" class="code" contenteditable="true" placeholder="Paste your code here..."></div>
+      </div>
+      <div class="code-container">
+        <label for="code2">my code:</label>
+        <div id="code2" class="code" contenteditable="true" placeholder="Paste your code here..."></div>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button id="checkDiffBtn">Check Diff</button>
+      <button id="clearBtn">Clear</button>
+      <label class="option-label">
+        <input type="checkbox" id="ignoreWhitespace" />
+        Ignore whitespace
+      </label>
+    </div>
+
+    <div id="result"></div>
+
+    <section class="seo-content">
+      <h2>What is CodeDiff Checker?</h2>
+      <p>CodeDiff Checker is a free online tool that visually compares two blocks of code or text and highlights the differences. No signup and no install are required — it runs entirely in your browser. Your code is never sent to a server, so you can safely compare proprietary or work code. Just paste two snippets to run a code diff, diff check, or text comparison instantly.</p>
+
+      <h3>Key features</h3>
+      <ul>
+        <li>Hybrid line-, word-, and character-level diff detection</li>
+        <li>Color-coded highlighting for additions (green), deletions (red), and changes</li>
+        <li>Automatic detection of full-width spaces</li>
+        <li>Drag &amp; drop file loading</li>
+        <li>Option to ignore whitespace</li>
+      </ul>
+
+      <h3>When to use it</h3>
+      <ul>
+        <li>Compare your code against a reference or sample while learning</li>
+        <li>Check what changed before a code review</li>
+        <li>Compare config files between production and development</li>
+        <li>Spot edits between draft and final text</li>
+      </ul>
+
+      <h2>Why choose an online diff tool</h2>
+      <p>Compared with desktop diff apps (Meld, WinMerge) or the CLI <code>diff</code> command, an online diff tool needs no installation and works the moment you open it. CodeDiff Checker runs every comparison inside your browser, so your source code is never uploaded to a server. It works on any OS — Windows, Mac, Linux, and mobile — with no setup.</p>
+    </section>
+
+    <div style="width: 100%; max-width: 728px; margin: 32px auto 0; text-align: center;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4871781946658288"
+           data-ad-slot="7493033745"
+           data-ad-format="horizontal"
+           data-full-width-responsive="false"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <footer>
+      <p>© 2026 CodeDiff Checker | Created by <a href="https://codequest.work/" target="_blank" rel="noopener noreferrer">CodeQuest.work</a></p>
+      <p>
+        <a href="howto.html" class="howto-link">📖 How to use</a>
+        <a href="https://codequest.work/category/generator/" target="_blank" rel="noopener">More generators →</a>
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/diff@5.0.0/dist/diff.min.js"></script>
+    <script src="../app.js"></script>
+
+    <!-- Structured data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "CodeDiff Checker",
+      "alternateName": ["Code Diff Tool", "Online Diff Checker", "Text Compare Tool"],
+      "url": "https://codequest.work/generator/diff-checker/en/",
+      "description": "A free online tool to visually compare two blocks of code or text. No signup, no install — runs in your browser. Highlights differences at the character level and detects full-width spaces.",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "DiffTool",
+      "operatingSystem": "Any (Web Browser)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "softwareVersion": "2.0",
+      "image": "https://codequest.work/generator/diff-checker/ogp.png",
+      "screenshot": "https://codequest.work/generator/diff-checker/ogp.png",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "featureList": [
+        "Side-by-side parallel diff view",
+        "Hybrid line-, word-, and character-level diff detection",
+        "Automatic detection of full-width spaces",
+        "Drag and drop file loading",
+        "Option to ignore whitespace",
+        "Runs fully in the browser (code is never sent to a server)"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Masakazu Imai",
+        "alternateName": "今井政和",
+        "url": "https://codequest.work/author/masakazu_imai/",
+        "jobTitle": "Executive Director / Frontend Engineer",
+        "description": "Web developer with 20+ years of experience, covering frontend development, SEO, and team management.",
+        "sameAs": [
+          "https://x.com/imai_director",
+          "https://github.com/masakazuimai"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CodeQuest.work",
+          "url": "https://codequest.work/"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CodeQuest.work",
+        "url": "https://codequest.work/",
+        "logo": "https://codequest.work/wp-content/uploads/2024/11/120120logo.png",
+        "sameAs": ["https://twitter.com/CodeQuest_work"]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "CodeQuest.work",
+          "item": "https://codequest.work/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Generators",
+          "item": "https://codequest.work/category/generator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CodeDiff Checker",
+          "item": "https://codequest.work/generator/diff-checker/en/"
+        }
+      ]
+    }
+    </script>
+  </body>
+</html>
