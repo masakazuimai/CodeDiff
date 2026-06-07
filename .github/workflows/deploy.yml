@@ -1,9 +1,11 @@
-name: Deploy via FTP
+name: Deploy to ConoHa WING
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '*.md'
 
 jobs:
   deploy:
@@ -11,16 +13,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./public/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.github/**
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy public/ via scp
+        env:
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          REMOTE_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          PORT=$(echo "${REMOTE_PORT}" | tr -d '[:space:]')
+          DEST=$(echo "${REMOTE_PATH}" | tr -d '[:space:]')
+          REMOTE="${REMOTE_USER}@${REMOTE_HOST}"
+          ssh -p "${PORT}" "${REMOTE}" "mkdir -p ${DEST}"
+          scp -P "${PORT}" -r ./public/* "${REMOTE}:${DEST}/"
