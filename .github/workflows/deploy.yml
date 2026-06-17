@@ -20,7 +20,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy public/ via scp
+      - name: Deploy public/ via rsync
         env:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
@@ -31,4 +31,4 @@ jobs:
           DEST=$(echo "${REMOTE_PATH}" | tr -d '[:space:]')
           REMOTE="${REMOTE_USER}@${REMOTE_HOST}"
           ssh -p "${PORT}" "${REMOTE}" "mkdir -p ${DEST}"
-          scp -P "${PORT}" -r ./public/* "${REMOTE}:${DEST}/"
+          rsync -az -e "ssh -p ${PORT}" ./public/ "${REMOTE}:${DEST}/"
