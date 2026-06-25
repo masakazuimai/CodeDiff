@@ -299,6 +299,31 @@
         color: #222;
       }
 
+      .lead-section h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 18px 0 8px;
+        color: #222;
+      }
+
+      .lead-section p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+
+      .lead-section ul {
+        margin: 0 0 8px;
+        padding-left: 1.4em;
+      }
+
+      .lead-section li {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.8;
+      }
+
       @media screen and (max-width: 768px) {
         .howto-wrap { width: 95%; padding: 24px 20px; }
         .step { flex-direction: column; gap: 10px; }
@@ -320,6 +345,22 @@
     <div class="howto-wrap">
       <h1>CodeDiff Checkerの使い方</h1>
       <p class="subtitle">コードやテキストの違いを視覚的に確認できるツールです。初めての方でも3ステップで使えます。</p>
+
+      <!-- ツール概要 -->
+      <section class="lead-section" aria-label="CodeDiff Checkerとは">
+        <h2>CodeDiff Checkerとは</h2>
+        <p>CodeDiff Checkerは、2つのコードやテキストの差分を視覚的に確認できる無料のオンラインツールです。登録不要・インストール不要で、ブラウザだけで使えます。コードはサーバーに送信されないため、業務コードも安全に比較できます。コードの差分チェック（code diff / diff check）やテキスト比較を、コピペするだけで実行できます。</p>
+        <h3>主な機能</h3>
+        <ul>
+          <li>行・単語・文字レベルのハイブリッド差分検出</li>
+          <li>追加（緑）・削除（赤）・変更箇所を色分けハイライト</li>
+          <li>全角スペース混入の自動検出</li>
+          <li>ファイルのドラッグ&amp;ドロップ読み込み</li>
+          <li>空白を無視するオプション</li>
+        </ul>
+      </section>
+
+      <hr class="divider" />
 
       <!-- Step 1 -->
       <div class="step">
@@ -447,6 +488,14 @@
 
       <hr class="divider" />
 
+      <!-- オンラインdiffツールのメリット -->
+      <section class="lead-section" aria-label="オンラインdiffツールを選ぶメリット">
+        <h2>オンラインdiffツールを選ぶメリット</h2>
+        <p>デスクトップ型のdiffアプリ（Meld・WinMerge等）やCLIのdiffコマンドと比べて、オンラインdiffツールはインストール不要で即座に使えるメリットがあります。CodeDiff Checkerは、diff tool（差分比較ツール）の中でも日本語UIに対応し、全角スペースの自動検出など日本語環境での開発に特化した機能を備えたフリーソフトです。すべての処理がブラウザ内で完結するため、ソースコードがサーバーに送信されることはありません。</p>
+      </section>
+
+      <hr class="divider" />
+
       <!-- 他ツールとの比較 -->
       <section aria-label="他の差分ツールとの比較">
         <h2>他の差分ツールとの違い</h2>
@@ -503,6 +552,9 @@
         </table>
         <p style="font-size:16px; color:#555; line-height:1.7; margin-top:12px;">
           DF・WinMergeなどのデスクトップ型はWindows・Macへのインストールが必要ですが、CodeDiff Checkerはインストール不要でブラウザだけで使える無料の差分チェックツールです。Windows・Mac・Linux・スマートフォンなどOSを問わず利用できます。
+        </p>
+        <p style="font-size:16px; color:#555; line-height:1.7; margin-top:12px;">
+          diffツールの<a href="https://codequest.work/diff-tools-comparison/" target="_blank" rel="noopener">おすすめ比較・選び方</a>は別記事で詳しく解説しています。
         </p>
       </section>
 

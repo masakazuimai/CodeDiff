@@ -192,6 +192,7 @@ button:disabled {
   display: flex;
   width: 80%;
   max-width: 1400px;
+  min-height: 500px;
   margin: 0 auto 32px;
   border-radius: 12px;
   overflow: hidden;
@@ -328,64 +329,6 @@ button:disabled {
   font-weight: bold;
 }
 
-.seo-content {
-  width: 80%;
-  max-width: 1400px;
-  margin: 40px auto 0;
-  padding: 32px;
-  background: #e0e0e0;
-  border-radius: 15px;
-  box-shadow:
-    10px 10px 15px rgba(0, 0, 0, 0.1),
-    -10px -10px 15px rgba(255, 255, 255, 0.7);
-}
-
-.seo-content h2 {
-  font-size: 1.4rem;
-  margin-bottom: 16px;
-  color: #333;
-}
-
-.seo-content h3 {
-  font-size: 1.1rem;
-  margin: 24px 0 12px;
-  color: #444;
-}
-
-.seo-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 12px;
-}
-
-.seo-content ul {
-  padding-left: 1.5em;
-  margin-bottom: 12px;
-}
-
-.seo-content li {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #555;
-}
-
-.seo-content a {
-  color: #333;
-  text-decoration: underline;
-}
-
-.seo-content a:hover {
-  color: #111;
-}
-
-@media screen and (max-width: 768px) {
-  .seo-content {
-    width: 95%;
-    padding: 20px;
-  }
-}
-
 footer {
   padding: 24px 20px;
   text-align: center;
@@ -444,6 +387,7 @@ footer .howto-link:hover {
   .split-diff {
     flex-direction: column;
     width: 95%;
+    min-height: auto;
   }
   .split-panel:first-child {
     border-right: none;
@@ -452,5 +396,25 @@ footer .howto-link:hover {
   .diff-summary,
   .match-message {
     width: 95%;
+  }
+}
+
+/* 広告バナー（PC/タブレット 728×90、スマホ 320×50） */
+.ad-wrap {
+  min-height: 90px;
+}
+
+.ad-banner {
+  width: 728px;
+  height: 90px;
+}
+
+@media screen and (max-width: 727px) {
+  .ad-wrap {
+    min-height: 50px;
+  }
+  .ad-banner {
+    width: 320px;
+    height: 50px;
   }
 }

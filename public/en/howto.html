@@ -301,6 +301,31 @@
         color: #222;
       }
 
+      .lead-section h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 18px 0 8px;
+        color: #222;
+      }
+
+      .lead-section p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+
+      .lead-section ul {
+        margin: 0 0 8px;
+        padding-left: 1.4em;
+      }
+
+      .lead-section li {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.8;
+      }
+
       @media screen and (max-width: 768px) {
         .howto-wrap { width: 95%; padding: 24px 20px; }
         .step { flex-direction: column; gap: 10px; }
@@ -322,6 +347,22 @@
     <div class="howto-wrap">
       <h1>How to Use CodeDiff Checker</h1>
       <p class="subtitle">A tool that visually highlights the differences between code or text. Even first-time users can get going in 3 steps.</p>
+
+      <!-- Tool overview -->
+      <section class="lead-section" aria-label="What is CodeDiff Checker?">
+        <h2>What is CodeDiff Checker?</h2>
+        <p>CodeDiff Checker is a free online tool that visually compares two blocks of code or text and highlights the differences. No signup and no install are required — it runs entirely in your browser. Your code is never sent to a server, so you can safely compare proprietary or work code. Just paste two snippets to run a code diff, diff check, or text comparison instantly.</p>
+        <h3>Key features</h3>
+        <ul>
+          <li>Hybrid line-, word-, and character-level diff detection</li>
+          <li>Color-coded highlighting for additions (green), deletions (red), and changes</li>
+          <li>Automatic detection of full-width spaces</li>
+          <li>Drag &amp; drop file loading</li>
+          <li>Option to ignore whitespace</li>
+        </ul>
+      </section>
+
+      <hr class="divider" />
 
       <!-- Step 1 -->
       <div class="step">
@@ -445,6 +486,14 @@
             </p>
           </div>
         </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Why choose an online diff tool -->
+      <section class="lead-section" aria-label="Why choose an online diff tool">
+        <h2>Why choose an online diff tool</h2>
+        <p>Compared with desktop diff apps (Meld, WinMerge) or the CLI <code>diff</code> command, an online diff tool needs no installation and works the moment you open it. CodeDiff Checker runs every comparison inside your browser, so your source code is never uploaded to a server. It works on any OS — Windows, Mac, Linux, and mobile — with no setup.</p>
       </section>
 
       <hr class="divider" />
