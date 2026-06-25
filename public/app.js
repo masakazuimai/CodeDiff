@@ -5,7 +5,6 @@
     result: document.getElementById("result"),
     checkBtn: document.getElementById("checkDiffBtn"),
     clearBtn: document.getElementById("clearBtn"),
-    ignoreWs: document.getElementById("ignoreWhitespace"),
   };
 
   // 実行時に表示する文言（<html lang> で日本語/英語を切替。ロジックは共通）
@@ -36,11 +35,8 @@
   // 全角スペースをdiff用センチネル文字に変換（空白と区別するため）
   const FW = "\uE000";
 
-  const normalizeCode = (text, ignoreWhitespace) => {
-    let normalized = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n").replace(/\u3000/g, FW);
-    if (!ignoreWhitespace) return normalized;
-    return normalized.split("\n").map((l) => l.trimEnd()).join("\n");
-  };
+  const normalizeCode = (text) =>
+    text.replace(/\r\n/g, "\n").replace(/\r/g, "\n").replace(/\u3000/g, FW);
 
   const escapeHTML = (str) =>
     str
@@ -177,9 +173,8 @@
 
   // 差分チェック
   $.checkBtn.addEventListener("click", () => {
-    const ignoreWhitespace = $.ignoreWs.checked;
-    const code1 = normalizeCode($.code1.innerText.trim(), ignoreWhitespace);
-    const code2 = normalizeCode($.code2.innerText.trim(), ignoreWhitespace);
+    const code1 = normalizeCode($.code1.innerText.trim());
+    const code2 = normalizeCode($.code2.innerText.trim());
 
     if (!code1 || !code2) {
       alert(T.enterBoth);

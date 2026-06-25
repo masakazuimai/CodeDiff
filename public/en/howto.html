@@ -358,7 +358,6 @@
           <li>Color-coded highlighting for additions (green), deletions (red), and changes</li>
           <li>Automatic detection of full-width spaces</li>
           <li>Drag &amp; drop file loading</li>
-          <li>Option to ignore whitespace</li>
         </ul>
       </section>
 
@@ -386,7 +385,7 @@
           <h2>Click the "Check Diff" button</h2>
           <p>Click the button to display the differences.</p>
           <div class="tip">
-            💡 "Ignore whitespace" is off by default. Because trailing spaces can also cause bugs, keep it off in most cases. Turn it on only when differences in editor settings produce noise.
+            💡 Trailing spaces and full-width spaces are also detected as differences. Since invisible spaces can cause bugs, review the highlighted spots carefully.
           </div>
         </div>
       </div>
@@ -470,7 +469,7 @@
           <div class="usecase-card">
             <h3><span class="lang-tag">Python</span>Indentation differences</h3>
             <p>
-              In Python, indentation is part of the syntax. Compare with "Ignore whitespace" off to detect indentation drift from the sample code.
+              In Python, indentation is part of the syntax. Compare against the sample code to detect indentation drift directly as differences.
             </p>
           </div>
           <div class="usecase-card">
@@ -579,11 +578,6 @@
         </details>
 
         <details>
-          <summary>Can I ignore only whitespace or indentation differences?</summary>
-          <p>Turn on the "Ignore whitespace" checkbox to compare while ignoring trailing spaces and indentation differences. It is off by default. Because trailing spaces can also cause bugs, keep it off in most cases.</p>
-        </details>
-
-        <details>
           <summary>Can it detect stray full-width spaces?</summary>
           <p>Yes. Full-width spaces (U+3000) accidentally entered via a Japanese IME are visualized with an orange <span class="fullwidth-marker">□</span> marker in the results. A warning banner also appears at the top, so you can see at a glance which side contains them.</p>
         </details>
@@ -654,14 +648,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No. All diff processing runs entirely in your browser's JavaScript, so your input is never sent to an external server. You can safely compare proprietary code or text containing personal information."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I ignore only whitespace or indentation differences?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Turn on the \"Ignore whitespace\" checkbox to compare while ignoring trailing spaces and indentation differences. It is off by default. Because trailing spaces can also cause bugs, keep it off in most cases."
           }
         },
         {
@@ -739,7 +725,7 @@
           "@type": "HowToStep",
           "position": 2,
           "name": "Click the Check Diff button",
-          "text": "Click the button to display the differences. To ignore whitespace differences, turn on the Ignore whitespace checkbox."
+          "text": "Click the button to display the differences. Trailing spaces and full-width spaces are also detected as differences."
         },
         {
           "@type": "HowToStep",
