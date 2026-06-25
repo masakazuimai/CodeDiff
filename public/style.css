@@ -399,7 +399,7 @@ footer .howto-link:hover {
   }
 }
 
-/* 広告バナー（PC/タブレット 728×90、スマホ 320×50） */
+/* 広告バナー（PC/タブレット 728×90、スマホ 320×100） */
 .ad-wrap {
   min-height: 90px;
 }
@@ -411,10 +411,10 @@ footer .howto-link:hover {
 
 @media screen and (max-width: 727px) {
   .ad-wrap {
-    min-height: 50px;
+    min-height: 100px;
   }
   .ad-banner {
     width: 320px;
-    height: 50px;
+    height: 100px;
   }
 }
