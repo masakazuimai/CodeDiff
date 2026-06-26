@@ -324,6 +324,35 @@
         line-height: 1.8;
       }
 
+      .howto-header-title {
+        color: #f0f0f0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .step-num-q {
+        background: #555;
+      }
+
+      .section-note {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+
+      .section-note-top {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-top: 12px;
+      }
+
+      .compare-table th:nth-child(1) { width: 18%; }
+      .compare-table th:nth-child(2) { width: 16%; }
+      .compare-table th:nth-child(3) { width: 40%; }
+      .compare-table th:nth-child(4) { width: 26%; }
+
       @media screen and (max-width: 768px) {
         .howto-wrap { width: 95%; padding: 24px 20px; }
         .step { flex-direction: column; gap: 10px; }
@@ -334,7 +363,7 @@
   </head>
   <body>
     <header>
-      <p style="color:#f0f0f0; font-size:16px; font-weight:600;">CodeDiff Checker — 使い方ガイド</p>
+      <p class="howto-header-title">CodeDiff Checker — 使い方ガイド</p>
       <p class="lang-switch">
         <span aria-current="true">日本語</span>
         <span aria-hidden="true"> / </span>
@@ -427,7 +456,7 @@
 
       <!-- よくある使い方 -->
       <div class="step">
-        <div class="step-num" style="background:#555;">?</div>
+        <div class="step-num step-num-q">?</div>
         <div class="step-body">
           <h2>こんな場面で使えます</h2>
           <p>・プログラミング学習中に、答えと自分のコードを見比べたいとき</p>
@@ -442,7 +471,7 @@
       <!-- 言語別ユースケース -->
       <section aria-label="言語別ユースケース">
         <h2>言語別の使い方ユースケース</h2>
-        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+        <p class="section-note">
           プログラミング言語ごとに、CodeDiff Checkerが活躍する典型的なミス検出シーンを紹介します。
         </p>
         <div class="usecase-grid">
@@ -498,16 +527,16 @@
       <!-- 他ツールとの比較 -->
       <section aria-label="他の差分ツールとの比較">
         <h2>他の差分ツールとの違い</h2>
-        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+        <p class="section-note">
           差分確認の手段はいろいろありますが、CodeDiff Checkerは「学習中の人がブラウザだけで気軽に使える」ことに特化しています。
         </p>
         <table class="compare-table">
           <thead>
             <tr>
-              <th style="width:18%">ツール</th>
-              <th style="width:16%">種別</th>
-              <th style="width:40%">強み</th>
-              <th style="width:26%">初学者向き</th>
+              <th>ツール</th>
+              <th>種別</th>
+              <th>強み</th>
+              <th>初学者向き</th>
             </tr>
           </thead>
           <tbody>
@@ -549,10 +578,10 @@
             </tr>
           </tbody>
         </table>
-        <p style="font-size:16px; color:#555; line-height:1.7; margin-top:12px;">
+        <p class="section-note-top">
           DF・WinMergeなどのデスクトップ型はWindows・Macへのインストールが必要ですが、CodeDiff Checkerはインストール不要でブラウザだけで使える無料の差分チェックツールです。Windows・Mac・Linux・スマートフォンなどOSを問わず利用できます。
         </p>
-        <p style="font-size:16px; color:#555; line-height:1.7; margin-top:12px;">
+        <p class="section-note-top">
           diffツールの<a href="https://codequest.work/diff-tools-comparison/" target="_blank" rel="noopener">おすすめ比較・選び方</a>は別記事で詳しく解説しています。
         </p>
       </section>

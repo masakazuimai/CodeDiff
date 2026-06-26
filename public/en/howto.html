@@ -326,6 +326,35 @@
         line-height: 1.8;
       }
 
+      .howto-header-title {
+        color: #f0f0f0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .step-num-q {
+        background: #555;
+      }
+
+      .section-note {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+
+      .section-note-top {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-top: 12px;
+      }
+
+      .compare-table th:nth-child(1) { width: 18%; }
+      .compare-table th:nth-child(2) { width: 16%; }
+      .compare-table th:nth-child(3) { width: 40%; }
+      .compare-table th:nth-child(4) { width: 26%; }
+
       @media screen and (max-width: 768px) {
         .howto-wrap { width: 95%; padding: 24px 20px; }
         .step { flex-direction: column; gap: 10px; }
@@ -336,7 +365,7 @@
   </head>
   <body>
     <header>
-      <p style="color:#f0f0f0; font-size:16px; font-weight:600;">CodeDiff Checker — How-to Guide</p>
+      <p class="howto-header-title">CodeDiff Checker — How-to Guide</p>
       <p class="lang-switch">
         <a href="../howto.html" hreflang="ja">日本語</a>
         <span aria-hidden="true"> / </span>
@@ -429,7 +458,7 @@
 
       <!-- Common use cases -->
       <div class="step">
-        <div class="step-num" style="background:#555;">?</div>
+        <div class="step-num step-num-q">?</div>
         <div class="step-body">
           <h2>When to use it</h2>
           <p>・When you want to compare the answer with your own code while learning to program</p>
@@ -444,7 +473,7 @@
       <!-- Use cases by language -->
       <section aria-label="Use cases by language">
         <h2>Use cases by programming language</h2>
-        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+        <p class="section-note">
           Here are typical mistake-spotting scenarios where CodeDiff Checker shines, by language.
         </p>
         <div class="usecase-grid">
@@ -500,16 +529,16 @@
       <!-- Comparison with other tools -->
       <section aria-label="Comparison with other diff tools">
         <h2>How it differs from other diff tools</h2>
-        <p style="font-size:16px; color:#555; line-height:1.7; margin-bottom:8px;">
+        <p class="section-note">
           There are many ways to check differences, but CodeDiff Checker is built for "learners who want something they can use casually, in the browser alone."
         </p>
         <table class="compare-table">
           <thead>
             <tr>
-              <th style="width:18%">Tool</th>
-              <th style="width:16%">Type</th>
-              <th style="width:40%">Strength</th>
-              <th style="width:26%">Beginner-friendly</th>
+              <th>Tool</th>
+              <th>Type</th>
+              <th>Strength</th>
+              <th>Beginner-friendly</th>
             </tr>
           </thead>
           <tbody>
@@ -551,7 +580,7 @@
             </tr>
           </tbody>
         </table>
-        <p style="font-size:16px; color:#555; line-height:1.7; margin-top:12px;">
+        <p class="section-note-top">
           Desktop tools like Meld and WinMerge require installation on Windows or Mac, but CodeDiff Checker needs no install and works in the browser alone. It runs on any OS — Windows, Mac, Linux, and smartphones.
         </p>
       </section>
