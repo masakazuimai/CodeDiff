@@ -55,6 +55,13 @@ header h2 {
   text-shadow: 2px 2px 8px #fff;
 }
 
+/* h1内のサブテキスト（- 無料オンラインdiffツール 等） */
+.title-sub {
+  font-size: 0.5em;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
 /* 入力エリア */
 .container {
   display: flex;
@@ -454,6 +461,9 @@ footer .howto-link:hover {
 
 /* 広告バナー（PC/タブレット 728×90、スマホ 320×100）。display含めCSSで制御 */
 .ad-wrap {
+  width: 100%;
+  margin: 32px auto 0;
+  text-align: center;
   min-height: 90px;
 }
 
