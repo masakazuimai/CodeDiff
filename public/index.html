@@ -8,7 +8,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z6M3CJEV3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-7Z6M3CJEV3");
     </script>
@@ -50,13 +52,11 @@
 
     <!-- Favicon -->
     <link rel="icon" href="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
-
     <link rel="stylesheet" href="style.css" />
-
   </head>
   <body>
     <header>
-      <h1>CodeDiff Checker <span style="font-size: 0.5em; font-weight: 300; opacity: 0.7;">- 無料オンラインdiffツール</span></h1>
+      <h1>CodeDiff Checker <span style="font-size: 0.5em; font-weight: 300; opacity: 0.7">- 無料オンラインdiffツール</span></h1>
       <p class="lang-switch">
         <span aria-current="true">日本語</span>
         <span aria-hidden="true"> / </span>
@@ -82,13 +82,10 @@
 
     <div id="result"></div>
 
-    <div class="ad-wrap" style="width: 100%; margin: 32px auto 0; text-align: center;">
+    <div class="ad-wrap" style="width: 100%; margin: 32px auto 0; text-align: center">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4871781946658288" crossorigin="anonymous"></script>
       <!-- diff-checker -->
-      <ins class="adsbygoogle ad-banner"
-           style="display:inline-block"
-           data-ad-client="ca-pub-4871781946658288"
-           data-ad-slot="1952150579"></ins>
+      <ins class="adsbygoogle ad-banner" data-ad-client="ca-pub-4871781946658288" data-ad-slot="1952150579"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
@@ -108,85 +105,76 @@
 
     <!-- 構造化データ（JSON-LD） -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "CodeDiff Checker",
-      "alternateName": ["コード差分チェッカー", "diffツール", "diff tool", "diffチェッカー", "テキスト比較ツール", "diffアプリ"],
-      "url": "https://codequest.work/generator/diff-checker/",
-      "description": "コードやテキストの差分を色で視覚的に確認できる無料オンラインツール。登録不要・インストール不要でブラウザだけで使えます。文字レベルでハイライト表示し、全角スペースの混入も検出します。",
-      "applicationCategory": "DeveloperApplication",
-      "applicationSubCategory": "DiffTool",
-      "operatingSystem": "Any (Web Browser)",
-      "browserRequirements": "Requires JavaScript. Requires HTML5.",
-      "softwareVersion": "2.0",
-      "image": "https://codequest.work/generator/diff-checker/ogp.png",
-      "screenshot": "https://codequest.work/generator/diff-checker/ogp.png",
-      "inLanguage": "ja",
-      "isAccessibleForFree": true,
-      "featureList": [
-        "サイドバイサイド形式の並列差分表示",
-        "行・単語・文字レベルのハイブリッド差分検出",
-        "全角スペース混入の自動検出",
-        "ファイルのドラッグ&ドロップ読み込み",
-        "ブラウザ完結の処理（コードはサーバーに送信されない）"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "JPY"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "今井政和",
-        "alternateName": "Masakazu Imai",
-        "url": "https://codequest.work/author/masakazu_imai/",
-        "jobTitle": "エグゼクティブディレクター / フロントエンドエンジニア",
-        "description": "20年以上の経験を持つWeb制作者。フロントエンド開発からSEO、チームマネジメントまで対応。",
-        "sameAs": [
-          "https://x.com/imai_director",
-          "https://github.com/masakazuimai"
-        ],
-        "worksFor": {
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CodeDiff Checker",
+        "alternateName": ["コード差分チェッカー", "diffツール", "diff tool", "diffチェッカー", "テキスト比較ツール", "diffアプリ"],
+        "url": "https://codequest.work/generator/diff-checker/",
+        "description": "コードやテキストの差分を色で視覚的に確認できる無料オンラインツール。登録不要・インストール不要でブラウザだけで使えます。文字レベルでハイライト表示し、全角スペースの混入も検出します。",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "DiffTool",
+        "operatingSystem": "Any (Web Browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "softwareVersion": "2.0",
+        "image": "https://codequest.work/generator/diff-checker/ogp.png",
+        "screenshot": "https://codequest.work/generator/diff-checker/ogp.png",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "featureList": ["サイドバイサイド形式の並列差分表示", "行・単語・文字レベルのハイブリッド差分検出", "全角スペース混入の自動検出", "ファイルのドラッグ&ドロップ読み込み", "ブラウザ完結の処理（コードはサーバーに送信されない）"],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "JPY"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "今井政和",
+          "alternateName": "Masakazu Imai",
+          "url": "https://codequest.work/author/masakazu_imai/",
+          "jobTitle": "エグゼクティブディレクター / フロントエンドエンジニア",
+          "description": "20年以上の経験を持つWeb制作者。フロントエンド開発からSEO、チームマネジメントまで対応。",
+          "sameAs": ["https://x.com/imai_director", "https://github.com/masakazuimai"],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "CodeQuest.work",
+            "url": "https://codequest.work/"
+          }
+        },
+        "publisher": {
           "@type": "Organization",
           "name": "CodeQuest.work",
-          "url": "https://codequest.work/"
+          "url": "https://codequest.work/",
+          "logo": "https://codequest.work/wp-content/uploads/2024/11/120120logo.png",
+          "sameAs": ["https://twitter.com/CodeQuest_work"]
         }
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "CodeQuest.work",
-        "url": "https://codequest.work/",
-        "logo": "https://codequest.work/wp-content/uploads/2024/11/120120logo.png",
-        "sameAs": ["https://twitter.com/CodeQuest_work"]
       }
-    }
     </script>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "CodeQuest.work",
-          "item": "https://codequest.work/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "ジェネレーター",
-          "item": "https://codequest.work/category/generator/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "CodeDiff Checker",
-          "item": "https://codequest.work/generator/diff-checker/"
-        }
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "CodeQuest.work",
+            "item": "https://codequest.work/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ジェネレーター",
+            "item": "https://codequest.work/category/generator/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CodeDiff Checker",
+            "item": "https://codequest.work/generator/diff-checker/"
+          }
+        ]
+      }
     </script>
   </body>
 </html>
