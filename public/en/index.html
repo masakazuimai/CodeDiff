@@ -53,7 +53,7 @@
     <!-- Favicon -->
     <link rel="icon" href="https://codequest.work/wp-content/uploads/2024/11/120120logo.png" />
 
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../style.css?v=20260629a" />
 
   </head>
   <body>
@@ -84,16 +84,29 @@
 
     <div id="result"></div>
 
-    <div class="ad-wrap">
+    <div id="ad-widget" class="footer-ad">
+      <div class="ad-widget__head">
+        <span class="ad-widget__label">Sponsored</span>
+        <button id="ad-close" class="ad-widget__close" type="button" aria-label="Close ad">×</button>
+      </div>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4871781946658288" crossorigin="anonymous"></script>
       <!-- diff-checker -->
-      <ins class="adsbygoogle ad-banner"
+      <ins class="adsbygoogle"
+           style="display:block"
            data-ad-client="ca-pub-4871781946658288"
            data-ad-slot="1952150579"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </div>
+    <script>
+      (function () {
+        var w = document.getElementById("ad-widget");
+        var b = document.getElementById("ad-close");
+        if (!w || !b) return;
+        b.addEventListener("click", function () { w.classList.add("is-closed"); });
+      })();
+    </script>
 
     <footer>
       <p>© 2026 CodeDiff Checker | Created by <a href="https://codequest.work/" target="_blank" rel="noopener noreferrer">CodeQuest.work</a></p>

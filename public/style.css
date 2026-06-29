@@ -459,26 +459,64 @@ footer .howto-link:hover {
   }
 }
 
-/* 広告バナー（PC/タブレット 728×90、スマホ 320×100）。display含めCSSで制御 */
-.ad-wrap {
+/* 広告（右下フローティングカード300×250＋×閉じ／SP 320×100） */
+.footer-ad {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px 12px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+}
+.footer-ad.is-closed { display: none; }
+.ad-widget__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  margin: 32px auto 0;
-  text-align: center;
-  min-height: 90px;
+  position: relative;
+  z-index: 1;
 }
-
-.ad-banner {
-  display: inline-block;
-  width: 728px;
-  height: 90px;
+.ad-widget__label { color: #94a3b8; font-size: 16px; letter-spacing: 0.04em; }
+.ad-widget__close {
+  appearance: none;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
 }
-
-@media screen and (max-width: 727px) {
-  .ad-wrap {
-    min-height: 100px;
+.ad-widget__close:hover { background: #e2e8f0; color: #1e293b; }
+.footer-ad ins.adsbygoogle { display: block; width: 300px; height: 250px; }
+@media screen and (max-width: 768px) {
+  .footer-ad {
+    position: static;
+    align-self: center;
+    margin: 24px auto 0;
+    gap: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: auto;
   }
-  .ad-banner {
-    width: 320px;
-    height: 100px;
-  }
+  .footer-ad.is-closed { display: flex; }
+  .ad-widget__head { display: none; }
+  .footer-ad ins.adsbygoogle { width: 320px; height: 100px; }
 }
