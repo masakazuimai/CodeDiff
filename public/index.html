@@ -82,26 +82,8 @@
 
     <div id="result"></div>
 
-    <div id="ad-widget" class="footer-ad">
-      <div class="ad-widget__head">
-        <span class="ad-widget__label">広告</span>
-        <button id="ad-close" class="ad-widget__close" type="button" aria-label="広告を閉じる">×</button>
-      </div>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4871781946658288" crossorigin="anonymous"></script>
-      <!-- diff-checker -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4871781946658288" data-ad-slot="1952150579"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-    <script>
-      (function () {
-        var w = document.getElementById("ad-widget");
-        var b = document.getElementById("ad-close");
-        if (!w || !b) return;
-        b.addEventListener("click", function () { w.classList.add("is-closed"); });
-      })();
-    </script>
+    <!-- 広告テスト（2026-10-24〜6週間）: 右下広告を停止中。全画面広告用にローダーのみ残す -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4871781946658288" crossorigin="anonymous"></script>
 
     <footer>
       <p>© <script>document.write(new Date().getFullYear())</script> CodeDiff Checker | Created by <a href="https://codequest.work/" target="_blank" rel="noopener noreferrer">CodeQuest.work</a></p>
