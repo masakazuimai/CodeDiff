@@ -7,7 +7,6 @@
     clearBtn: document.getElementById("clearBtn"),
   };
 
-  // 実行時に表示する文言（<html lang> で日本語/英語を切替。ロジックは共通）
   const I18N = {
     ja: {
       enterBoth: "両方のコードを入力してください",
@@ -32,7 +31,6 @@
   };
   const T = I18N[(document.documentElement.lang || "ja").slice(0, 2)] || I18N.ja;
 
-  // 全角スペースをdiff用センチネル文字に変換（空白と区別するため）
   const FW = "\uE000";
 
   const normalizeCode = (text) =>
@@ -58,7 +56,6 @@
     `<span class="split-content"></span>` +
     `</div>`;
 
-  // 並列diff描画
   const renderSplitDiff = (code1, code2) => {
     const parts = Diff.diffLines(code1, code2);
     let html1 = "";
@@ -75,7 +72,6 @@
       const next = parts[i + 1];
 
       if (!part.added && !part.removed) {
-        // 変更なし
         splitLines(part.value).forEach((line) => {
           const esc = escapeHTML(line);
           html1 += makeLine(lineNum1++, esc, "line-unchanged");
@@ -83,7 +79,6 @@
         });
         i++;
       } else if (part.removed && next && next.added) {
-        // 変更あり：単語単位で検出 → 削除側は文字精度、追加側は単語丸ごと
         const removedLines = splitLines(part.value);
         const addedLines = splitLines(next.value);
         const pairLen = Math.min(removedLines.length, addedLines.length);
@@ -104,13 +99,11 @@
               h2 += escapeHTML(w.value);
               wi++;
             } else if (w.removed && wn && wn.added) {
-              // 削除側：文字レベルで正確に（消えた文字だけ赤）
               Diff.diffChars(w.value, wn.value).forEach(({ added, removed, value }) => {
                 const esc = escapeHTML(value);
                 if (removed)     h1 += `<span class="char-removed">${esc}</span>`;
                 else if (!added) h1 += esc;
               });
-              // 追加側：単語丸ごと緑
               h2 += `<span class="char-added">${escapeHTML(wn.value)}</span>`;
               wi += 2;
             } else if (w.removed) {
@@ -157,7 +150,6 @@
     return { html1, html2, addedCount, removedCount, changedCount };
   };
 
-  // ペースト処理（Selection API）
   const handlePaste = (e) => {
     e.preventDefault();
     const text = (e.clipboardData || window.clipboardData).getData("text");
@@ -171,7 +163,6 @@
     range.collapse(false);
   };
 
-  // 差分チェック
   $.checkBtn.addEventListener("click", () => {
     const code1 = normalizeCode($.code1.innerText.trim());
     const code2 = normalizeCode($.code2.innerText.trim());
@@ -184,7 +175,6 @@
     $.checkBtn.disabled = true;
 
     try {
-      // 全角スペース検出（センチネルに変換済みの code1/code2 で判定）
       const fw1 = code1.includes(FW);
       const fw2 = code2.includes(FW);
 
@@ -217,7 +207,6 @@
           `</div>` +
         `</div>`;
 
-      // 結果パネルのスクロール同期
       const body1 = document.getElementById("diffBody1");
       const body2 = document.getElementById("diffBody2");
       let syncing = false;
@@ -236,14 +225,12 @@
     }
   });
 
-  // クリア
   $.clearBtn.addEventListener("click", () => {
     $.code1.innerHTML = "";
     $.code2.innerHTML = "";
     $.result.innerHTML = "";
   });
 
-  // ファイルD&D
   const handleDrop = (target) => (e) => {
     e.preventDefault();
     target.classList.remove("drag-over");
